@@ -28,7 +28,7 @@ const Header:React.FC = () => {
           <NavLink to={'/login'}><Button variant="secondary" className="h-9 bg-[#3D61FF] text-white hover:bg-[#4260e7]">{t("homepage.signin")}</Button></NavLink>
             <DropdownMenu >
               <DropdownMenuTrigger asChild>
-                <Button className="  h-9 w-9 hover:bg-[#1e293b]" variant="ghost">
+                <Button className="  h-9 w-9 dark:hover:bg-[#1e293b]" variant="ghost">
                   <svg
                     width="15"
                     height="15"
