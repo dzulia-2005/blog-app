@@ -1,0 +1,10 @@
+{
+    "title" : "Log in to BitBlogs",
+    "undertitle":"Enter your credentials to access your account",
+    "email":"Email",
+    "pass" : "Password",
+    "login" : "Log In",
+    "fp":"Forgot password?",
+    "da":"Don't have an account?",
+    "sa":"Sign In"
+}
