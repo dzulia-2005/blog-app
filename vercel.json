@@ -1,13 +1,14 @@
 {
-  "env": {
-    "SUPABASE_URL": "https://taxvfyghzhypjlqdbkqv.supabase.co",
-    "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRheHZmeWdoemh5cGpscWRia3F2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIxMDg0ODMsImV4cCI6MjA0NzY4NDQ4M30.KkwexUFX4dRpvqzXJAHwi2Eb6RkZ7av_1Y8YRk5uo9g"
-  },
   "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html",
-      "permanent": false
+      "source": "/",
+      "destination": "/home",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
