@@ -35,19 +35,21 @@ const Header: React.FC = () => {
         <NavLink to={"/"}>
           <div className="text-2xl font-bold">BitBlogs</div>
         </NavLink>
-        <nav className="flex space-x-4 text-[#555868]">
+        <nav className="lg:flex space-x-4 text-[#555868]  hidden">
           <NavLink to={"/"} className="">
             <div className="text-muted-foreground">{t("homepage.home")}</div>
           </NavLink>
           <div className="text-muted-foreground">{t("homepage.write")}</div>
-          <div className="text-muted-foreground">{t("homepage.about")}</div>
+          <NavLink to={'/about'}>
+            <div className="text-muted-foreground">{t("homepage.about")}</div>
+          </NavLink>
         </nav>
         <div className="flex space-x-4 items-center">
           
         <button
             className="h-6 w-6 relative flex items-center"
             type="button"
-            onClick={() => setIsCommandOpen((prev) => !prev)} // აქ ვიყენებთ toggle ლოგიკას
+            onClick={() => setIsCommandOpen((prev) => !prev)} 
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
