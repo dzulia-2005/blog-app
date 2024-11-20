@@ -2,6 +2,7 @@ import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 import React from 'react'
 import { Button } from '../ui/button'
 import { useTranslation } from 'react-i18next'
+import { NavLink } from 'react-router-dom'
 
 const Rightbar:React.FC = () => {
   const {t} = useTranslation()
@@ -29,19 +30,21 @@ const Rightbar:React.FC = () => {
                     </div>
                     <div className="p-6 pt-0">
                         <ul className="space-y-4">
-                          <li>
-                            <div className="flex items-center">
-                              <span >
-                                <Avatar >
-                                  <AvatarImage className="rounded-full h-10 w-10" src="/src/assets/img.svg"/>
-                                </Avatar>
-                              </span>
-                              <div className="ml-4">
-                                   <div className="p-0" >Alice Johnson</div>
-                                   <p className="text-sm text-muted-foreground">Blockchain Enthusiast</p>
+                          <NavLink to={'/author'}>
+                            <li>
+                              <div className="flex items-center">
+                                <span >
+                                  <Avatar >
+                                    <AvatarImage className="rounded-full h-10 w-10" src="/src/assets/img.svg"/>
+                                  </Avatar>
+                                </span>
+                                <div className="ml-4">
+                                    <div className="p-0" >Alice Johnson</div>
+                                    <p className="text-sm text-muted-foreground">Blockchain Enthusiast</p>
+                                </div>
                               </div>
-                            </div>
-                          </li>
+                            </li>
+                         </NavLink>
                           <li>
                             <div className="flex items-center">
                               <span >

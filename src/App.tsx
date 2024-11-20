@@ -3,6 +3,8 @@ import Layoutdefault from "./layouts/default/layoutdefault";
 import Home from "./pages/home/home";
 import Login from "./pages/login/login";
 import SignIn from "./pages/signup/signup";
+import About from "./pages/about/about";
+import Author from "./pages/author/author";
 
 
 function App() {
@@ -17,12 +19,20 @@ function App() {
                   element={<Home/>}
                />
                <Route
-                  path="login"
+                  path="/login"
                   element = {<Login/>}
                />
                <Route
-                  path="register"
+                  path="/register"
                   element = {<SignIn/>}
+               />
+                <Route
+                  path="/about"
+                  element = {<About/>}
+               />
+                <Route
+                  path="/author"
+                  element = {<Author/>}
                />
             </Route>
           </Routes>
