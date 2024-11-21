@@ -2,6 +2,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
 import React, { useState } from 'react'
 import { Button } from '../../components/ui/button'
 import { useTranslation } from 'react-i18next'
+import image from '../../assets/img.svg'
+
 
 const Author:React.FC = () => {
     const {t}=useTranslation()
@@ -11,7 +13,7 @@ const Author:React.FC = () => {
     <div className='max-w-4xl mx-auto'>
         <div className='flex flex-col md:flex-row items-center md:items-start mb-12 bg-card rounded-xl shadow-lg p-8'>
         <Avatar className=' border-4 border-[#3D61FF] rounded-full lg:mr-8 mr-0'>
-            <AvatarImage className='rounded-full w-32 ' src="/src/assets/img.svg" />
+            <AvatarImage className='rounded-full w-32 ' src={image} />
             <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <div>
@@ -79,7 +81,7 @@ const Author:React.FC = () => {
                         <div className="rounded-xl border shadow">
                             <div className="flex flex-col space-y-1.5 p-6">
                             <div className="mb-4">
-                                <img className="rounded-lg object-cover w-full h-[200px]" src="/src/assets/img.svg" alt="" />
+                                <img className="rounded-lg object-cover w-full h-[200px]" src={image} alt="" />
                             </div>
                             <div className="text-2xl font-bold">{t("homepage.title")}</div>
                             <div className="text-[#555868]">
