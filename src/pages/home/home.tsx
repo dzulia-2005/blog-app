@@ -2,6 +2,7 @@ import React from 'react'
 import Rightbar from '../../components/rightbar/rightbar'
 import { Button } from '../../components/ui/button'
 import { useTranslation } from 'react-i18next'
+import image from '../../assets/img.svg'
 
 
 const Home:React.FC = () => {
@@ -14,7 +15,7 @@ const Home:React.FC = () => {
                   <div className="rounded-xl border shadow">
                       <div className="flex flex-col space-y-1.5 p-6">
                         <div className="mb-4">
-                          <img className="rounded-lg object-cover w-full h-[200px]" src="/src/assets/img.svg" alt="" />
+                          <img className="rounded-lg object-cover w-full h-[200px]" src={image} alt="" />
                         </div>
                         <div className="text-2xl font-bold">{t("homepage.title")}</div>
                         <div className="text-[#555868]">
