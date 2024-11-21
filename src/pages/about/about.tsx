@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button } from '../../components/ui/button'
 import { NavLink } from 'react-router-dom'
+import image from '../../assets/img.svg'
+
 
 const About:React.FC = () => {
   return (
@@ -15,7 +17,7 @@ const About:React.FC = () => {
                 <p className='text-muted-foreground'>At bitBlogs, we believe in the power of shared knowledge. Our mission is to create a platform where tech enthusiasts, developers, and innovators can come together to share ideas, learn from each other, and push the boundaries of what's possible in the world of technology.</p>
             </div>
             <div>
-                <img src="/src/assets/img.svg" alt="img" />
+                <img src={image} alt="img" />
             </div>
         </section>
         <section className='space-y-8'>
@@ -75,4 +77,3 @@ const About:React.FC = () => {
 
 export default About
 
-// 
