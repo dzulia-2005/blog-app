@@ -3,6 +3,7 @@ import React from 'react'
 import { Button } from '../ui/button'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
+import image from '../../assets/img.svg'
 
 const Rightbar:React.FC = () => {
   const {t} = useTranslation()
@@ -35,7 +36,7 @@ const Rightbar:React.FC = () => {
                               <div className="flex items-center">
                                 <span >
                                   <Avatar >
-                                    <AvatarImage className="rounded-full h-10 w-10" src="/src/assets/img.svg"/>
+                                    <AvatarImage className="rounded-full h-10 w-10" src={image}/>
                                   </Avatar>
                                 </span>
                                 <div className="ml-4">
@@ -49,7 +50,7 @@ const Rightbar:React.FC = () => {
                             <div className="flex items-center">
                               <span >
                                 <Avatar >
-                                  <AvatarImage className="rounded-full h-10 w-10" src="/src/assets/img.svg"/>
+                                  <AvatarImage className="rounded-full h-10 w-10" src={image}/>
                                 </Avatar>
                               </span>
                               <div className="ml-4">
@@ -62,7 +63,7 @@ const Rightbar:React.FC = () => {
                             <div className="flex items-center">
                               <span >
                                 <Avatar >
-                                  <AvatarImage className="rounded-full h-10 w-10" src="/src/assets/img.svg"/>
+                                  <AvatarImage className="rounded-full h-10 w-10" src={image}/>
                                 </Avatar>
                               </span>
                               <div className="ml-4">
