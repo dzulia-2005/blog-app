@@ -5,5 +5,11 @@
       "destination": "/new-url",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
   ]
 }
