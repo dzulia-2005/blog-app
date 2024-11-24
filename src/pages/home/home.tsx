@@ -1,5 +1,5 @@
 import React from 'react'
-import Rightbar from '../../components/rightbar/rightbar'
+import Rightbar from '../../components/base/rightbar/rightbar'
 import { Button } from '../../components/ui/button'
 import { useTranslation } from 'react-i18next'
 import image from '../../assets/img.svg'
