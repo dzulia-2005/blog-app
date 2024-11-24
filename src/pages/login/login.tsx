@@ -3,23 +3,35 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '../../components/ui/input'
 import { Label } from '@radix-ui/react-label'
 import { Button } from '../../components/ui/button'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useMutation } from '@tanstack/react-query'
 import { login } from '../../supabase/auth'
-
+import { useAtom } from 'jotai'
+import { userAtom } from '../../store/auth'
 
 const Login:React.FC = () => {
+    const navigate = useNavigate()
     const {t} = useTranslation()
+    
+    const [,setUser]=useAtom(userAtom)
+
     const[loginpayload,setLoginpayload]=useState({
         email:"",
         password:""
     })
 
-    const {mutate:handlelogin} = useMutation({
+
+    const {mutate:handlelogin,} = useMutation({
         mutationKey:["login"],
         mutationFn : login,
+        onSuccess : (res) => {
+            setUser(res.data.user)
+            navigate('/')
+        },
+        
     })
+
 
     const handlesubmit = () => {
         const ismailfill = !!loginpayload.email
@@ -29,6 +41,8 @@ const Login:React.FC = () => {
             handlelogin(loginpayload)
         }
     }
+
+    
     
   return (
     <div className='min-h-screen flex flex-item justify-center items-center'>

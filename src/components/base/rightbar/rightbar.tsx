@@ -1,9 +1,9 @@
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 import React from 'react'
-import { Button } from '../ui/button'
+import { Button } from '../../ui/button'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
-import image from '../../assets/img.svg'
+import image from '../../../assets/img.svg'
 
 const Rightbar:React.FC = () => {
   const {t} = useTranslation()

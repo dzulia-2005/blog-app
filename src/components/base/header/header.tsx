@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { NavLink } from "react-router-dom";
-import { ModeToggle } from "../mode_toogle/mode-toggle";
+import { ModeToggle } from "../../mode_toogle/mode-toggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-
 import {
   Command,
   CommandEmpty,
@@ -18,14 +19,32 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "../../components/ui/command";
+} from "../../ui/command";
+import { useMutation } from "@tanstack/react-query";
+import { logout } from "../../../supabase/auth";
+import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
+import image from '../../../assets/img.svg'
+import { userAtom } from "../../../store/auth";
+import { useAtom } from 'jotai'
+
 
 const Header: React.FC = () => {
   const { t } = useTranslation();
 
+  const [user,setUser]=useAtom(userAtom)
+
   const handleChangeLang = (lang: string) => {
     i18next.changeLanguage(lang);
   };
+
+  const {mutate:handleLogout} = useMutation({
+    mutationKey:['logout'],
+    mutationFn:logout,
+    onSuccess:()=>{
+      setUser(null)
+    },
+  })
+
 
   const [isCommandOpen, setIsCommandOpen] = useState(false);
 
@@ -68,14 +87,6 @@ const Header: React.FC = () => {
             </svg>
           </button>
 
-          <NavLink to={"/login"}>
-            <Button
-              variant="secondary"
-              className="h-9 bg-[#3D61FF] text-white hover:bg-[#4260e7]"
-            >
-              {t("homepage.signin")}
-            </Button>
-          </NavLink>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -89,6 +100,7 @@ const Header: React.FC = () => {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
+                  
                 >
                   <path
                     d="M7.49996 1.80002C4.35194 1.80002 1.79996 4.352 1.79996 7.50002C1.79996 10.648 4.35194 13.2 7.49996 13.2C10.648 13.2 13.2 10.648 13.2 7.50002C13.2 4.352 10.648 1.80002 7.49996 1.80002ZM0.899963 7.50002C0.899963 3.85494 3.85488 0.900024 7.49996 0.900024C11.145 0.900024 14.1 3.85494 14.1 7.50002C14.1 11.1451 11.145 14.1 7.49996 14.1C3.85488 14.1 0.899963 11.1451 0.899963 7.50002Z"
@@ -127,6 +139,41 @@ const Header: React.FC = () => {
             </DropdownMenuContent>
           </DropdownMenu>
           <ModeToggle />
+          {user ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                 <Avatar >
+                     <AvatarImage className="rounded-full h-10 w-10" src={image}/>
+                 </Avatar>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="mr-8 w-28 border h-auto bg-white dark:bg-[#010917] dark:border-gray-700 rounded-md shadow-lg p-2 mt-2">
+                <DropdownMenuItem>
+                  <NavLink to={'/profile'}>
+                    <button className="w-full text-left">Profile</button>
+                  </NavLink>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <button
+                    onClick={() => handleLogout()}
+                    className="w-full text-left"
+                  >
+                    Log Out
+                  </button>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
+          ):(
+            <NavLink to={"/login"}>
+                <Button
+                  variant="secondary"
+                  className="h-9 bg-[#3D61FF] text-white hover:bg-[#4260e7]"
+                >
+                  {t("homepage.signin")}
+                </Button>
+              </NavLink>
+          )}
         </div>
       </div>
 
@@ -164,6 +211,7 @@ const Header: React.FC = () => {
           </div>
         </div>
       )}
+      
     </header>
   );
 };
