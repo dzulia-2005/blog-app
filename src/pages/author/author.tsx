@@ -8,7 +8,7 @@ import image from '../../assets/img.svg'
 const Author:React.FC = () => {
     const {t}=useTranslation()
     const [activeTab, setActiveTab] = useState("articles");
-
+    
   return (
     <div className='max-w-4xl mx-auto'>
         <div className='flex flex-col md:flex-row items-center md:items-start mb-12 bg-card rounded-xl shadow-lg p-8'>
