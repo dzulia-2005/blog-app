@@ -1,0 +1,21 @@
+{
+     
+      "avatar_url": "ავატარის URL",
+      "fullname_ka": "სრული სახელი (KA)",
+      "fullname_en": "სრული სახელი (EN)",
+      "number": "ნომერი",
+      "edit_profile": "პროფილის რედაქტირება",
+      "save": "შენახვა",
+      "number_label": "ნომერი",
+      "fullname_label": "სრული სახელი",
+        "fullname_ka_required": "სრული სახელი (KA) სავალდებულოა",
+        "fullname_en_required": "სრული სახელი (EN) სავალდებულოა",
+        "number_required": "ნომერი სავალდებულოა",
+        "avatar_url_required": "ავატარის URL სავალდებულოა",
+        "min_length": "მინიმალური სიგრძე უნდა იყოს 6 სიმბოლო",
+        "max_length": "მაქსიმალური სიგრძე უნდა იყოს 20 სიმბოლო",
+        "invalid_number": "შეიყვანეთ მხოლოდ რიცხვები"
+      
+    
+  }
+  

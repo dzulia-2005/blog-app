@@ -5,6 +5,7 @@ import image from '../../assets/img.svg'
 
 
 const About:React.FC = () => {
+   
   return (
     <div className='max-w-4xl mx-auto space-y-12'>
         <section className='text-center'>

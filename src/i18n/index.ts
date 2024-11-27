@@ -7,6 +7,8 @@ import signinpageKA from "../i18n/ka/pages/login.json"
 import LanguageDetector from 'i18next-browser-languagedetector';
 import SignupKA from "../i18n/ka/pages/signup.json"
 import SignupEN from "../i18n/en/pages/signup.json"
+import ProfileKa from "../i18n/ka/pages/profile.json"
+import ProfileEn from "../i18n/en/pages/profile.json"
 
 
 const options = {  
@@ -25,10 +27,10 @@ i18n.use(lngDetector)
     detection: options,
     resources: {
       ka : {
-        translation : {"homepage" : homepageKA , "signpage" : signinpageKA , "signup" : SignupKA}
+        translation : {"homepage" : homepageKA , "signpage" : signinpageKA ,  "signup" : SignupKA, "profile":ProfileKa}
       } , 
       en : {
-        translation : {"homepage" : homepageEN , "signpage" : signinpageEN , "signup" : SignupEN} 
+        translation : {"homepage" : homepageEN , "signpage" : signinpageEN , "signup" : SignupEN, "profile" : ProfileEn} 
         }
     },
     lng: "en", 
@@ -38,3 +40,5 @@ i18n.use(lngDetector)
       escapeValue: false 
     }
   });
+
+  export default i18n; 

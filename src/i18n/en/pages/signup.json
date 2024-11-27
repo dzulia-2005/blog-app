@@ -7,5 +7,12 @@
     "CP":"Confirm Password",
     "signup":"Sign Up",
     "AC":"Already have an account?",
-    "LI":"Log in"
+    "LI":"Log in","required": "This field is required.",
+    "emailvalida": "Please enter a valid email address.",
+    "minLength": "The field must contain at least 6 characters.",
+    "maxLength": "The field must contain at most 20 characters.",
+    "namevalida": "Name should only contain letters and spaces.",
+    "emailvalidate": "Please enter a valid email.",
+    "passwordvalida": "Password must contain at least 6 characters.",
+    "confirmPassword": "Passwords do not match."
 }

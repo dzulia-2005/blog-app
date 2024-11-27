@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../../ui/button";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import { ModeToggle } from "../../mode_toogle/mode-toggle";
 import {
   DropdownMenu,
@@ -30,11 +30,17 @@ import { useAtom } from 'jotai'
 
 const Header: React.FC = () => {
   const { t } = useTranslation();
-
+  const { lang } = useParams<{ lang: string }>();
   const [user,setUser]=useAtom(userAtom)
 
+  
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleChangeLang = (lang: string) => {
+    const currentPath = location.pathname.split("/").slice(2).join("/");
     i18next.changeLanguage(lang);
+    navigate(`/${lang}/${currentPath}`);
   };
 
   const {mutate:handleLogout} = useMutation({
@@ -51,15 +57,15 @@ const Header: React.FC = () => {
   return (
     <header className="border-b h-[70px]">
       <div className="mr-auto ml-auto px-4 py-4 flex items-center justify-between">
-        <NavLink to={"/"}>
+        <NavLink to={`/${lang}`}>
           <div className="text-2xl font-bold">BitBlogs</div>
         </NavLink>
         <nav className="lg:flex space-x-4 text-[#555868]  hidden">
-          <NavLink to={"/"} className="">
+          <NavLink to={`/${lang}`} className="">
             <div className="text-muted-foreground">{t("homepage.home")}</div>
           </NavLink>
           <div className="text-muted-foreground">{t("homepage.write")}</div>
-          <NavLink to={'/about'}>
+          <NavLink to={`/${lang}/about`}>
             <div className="text-muted-foreground">{t("homepage.about")}</div>
           </NavLink>
         </nav>
@@ -148,7 +154,7 @@ const Header: React.FC = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="mr-8 w-28 border h-auto bg-white dark:bg-[#010917] dark:border-gray-700 rounded-md shadow-lg p-2 mt-2">
                 <DropdownMenuItem>
-                  <NavLink to={'/profile'}>
+                  <NavLink to={`/${lang}/profile`} >
                     <button className="w-full text-left">Profile</button>
                   </NavLink>
                 </DropdownMenuItem>
@@ -165,7 +171,7 @@ const Header: React.FC = () => {
             </DropdownMenu>
             
           ):(
-            <NavLink to={"/login"}>
+            <NavLink to={`/${lang}/login`}>
                 <Button
                   variant="secondary"
                   className="h-9 bg-[#3D61FF] text-white hover:bg-[#4260e7]"

@@ -1,0 +1,22 @@
+{
+    
+      "avatar_url": "Avatar URL",
+      "fullname_ka": "Fullname (KA)",
+      "fullname_en": "Fullname (EN)",
+      "number": "Number",
+      "edit_profile": "Edit Profile",
+      "save": "Save",
+      "number_label": "Number",
+      "fullname_label": "Fullname",
+      
+        "fullname_ka_required": "Fullname (KA) is required",
+        "fullname_en_required": "Fullname (EN) is required",
+        "number_required": "Number is required",
+        "avatar_url_required": "Avatar URL is required",
+        "min_length": "Minimum length is 6 characters",
+        "max_length": "Maximum length is 20 characters",
+        "invalid_number": "Only numbers are allowed"
+      
+    
+  }
+  
