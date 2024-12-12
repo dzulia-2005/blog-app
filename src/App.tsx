@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layoutdefault from "./layouts/default/layoutdefault";
-import Home from "./pages/home/home";
+import Home from "./pages/home/view/home";
 import Login from "./pages/login/login";
 import SignIn from "./pages/signup/signup";
 import About from "./pages/about/about";
@@ -12,6 +12,7 @@ import Guestguard from "./components/guest-guard/auth";
 import { userAtom } from "./store/auth";
 import { useAtom } from "jotai";
 import Profiles from "./pages/profiles/view/profiles";
+import AddCard from "./pages/createcard";
 
 function App() {
   const [, setUser] = useAtom(userAtom);
@@ -55,6 +56,15 @@ function App() {
                   <SignIn />
                 </Guestguard>
               }
+            />
+            <Route
+              path="write"
+              element={
+                <AuthGuard>
+                    <AddCard />
+                </AuthGuard>
+              }
+
             />
             <Route
               path="about"
