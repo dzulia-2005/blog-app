@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate:supabase": "supabase gen types typescript --project-id YOUR_PROJECT_ID --schema public > src/supabase/supabase.types.ts"
+    "generate-supa-types": "supabase gen types typescript --project-id taxvfyghzhypjlqdbkqv --schema public > src/supabase/supabase.types.ts"
   },
   "dependencies": {
     "@dicebear/collection": "^9.2.2",

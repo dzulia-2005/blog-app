@@ -64,7 +64,9 @@ const Header: React.FC = () => {
           <NavLink to={`/${lang}`} className="">
             <div className="text-muted-foreground">{t("homepage.home")}</div>
           </NavLink>
-          <div className="text-muted-foreground">{t("homepage.write")}</div>
+          <NavLink to={`/${lang}/write`}>
+            <div className="text-muted-foreground">{t("homepage.write")}</div>
+          </NavLink>
           <NavLink to={`/${lang}/about`}>
             <div className="text-muted-foreground">{t("homepage.about")}</div>
           </NavLink>
