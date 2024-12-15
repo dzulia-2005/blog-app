@@ -11,21 +11,13 @@ import {
 } from "@radix-ui/react-dropdown-menu";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-} from "../../ui/command";
+
 import { useMutation } from "@tanstack/react-query";
 import { logout } from "../../../supabase/auth";
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
-import image from '../../../assets/img.svg'
+import image from '../../../assets/img.svg';
 import { userAtom } from "../../../store/auth";
-import { useAtom } from 'jotai'
+import { useAtom } from 'jotai';
 
 
 const Header: React.FC = () => {
@@ -54,6 +46,7 @@ const Header: React.FC = () => {
 
   const [isCommandOpen, setIsCommandOpen] = useState(false);
 
+
   return (
     <header className="border-b h-[70px]">
       <div className="mr-auto ml-auto px-4 py-4 flex items-center justify-between">
@@ -71,30 +64,7 @@ const Header: React.FC = () => {
             <div className="text-muted-foreground">{t("homepage.about")}</div>
           </NavLink>
         </nav>
-        <div className="flex space-x-4 items-center">
-          
-        <button
-            className="h-6 w-6 relative flex items-center"
-            type="button"
-            onClick={() => setIsCommandOpen((prev) => !prev)} 
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-search text-muted-foreground"
-            >
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.3-4.3"></path>
-            </svg>
-          </button>
-
+        <div className="flex space-x-4 items-center"> 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -151,7 +121,7 @@ const Header: React.FC = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                  <Avatar >
-                     <AvatarImage className="rounded-full h-10 w-10" src={image}/>
+                     <AvatarImage className="rounded-full h-10 w-[2.5rem]" src={image}/>
                  </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="mr-8 w-28 border h-auto bg-white dark:bg-[#010917] dark:border-gray-700 rounded-md shadow-lg p-2 mt-2">
@@ -195,31 +165,9 @@ const Header: React.FC = () => {
               setIsCommandOpen(false);
             }}
           >
-            <Command
-              onClick={(e) => {
-                e.stopPropagation(); 
-                console.log("Command clicked! Prevented backdrop close."); 
-              }}
-              className="rounded-lg border shadow-md bg-white dark:bg-[#010917] md:min-w-[450px]"
-            >
-              <CommandInput placeholder="Type to search..." />
-              <CommandList>
-                <CommandEmpty>No results found.</CommandEmpty>
-                <CommandGroup heading="Tags">
-                  <CommandItem>
-                    <span>AI</span>
-                  </CommandItem>
-                  <CommandItem>
-                    <span>Data Science</span>
-                  </CommandItem>
-                </CommandGroup>
-                <CommandSeparator/>
-              </CommandList>
-            </Command>
           </div>
         </div>
       )}
-      
     </header>
   );
 };
